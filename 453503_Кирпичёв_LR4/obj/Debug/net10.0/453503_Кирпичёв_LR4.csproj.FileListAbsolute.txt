@@ -1,0 +1,14 @@
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\bin\Debug\net10.0\453503_Кирпичёв_LR4.exe
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\bin\Debug\net10.0\453503_Кирпичёв_LR4.deps.json
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\bin\Debug\net10.0\453503_Кирпичёв_LR4.runtimeconfig.json
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\bin\Debug\net10.0\453503_Кирпичёв_LR4.dll
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\bin\Debug\net10.0\453503_Кирпичёв_LR4.pdb
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\obj\Debug\net10.0\453503_Кирпичёв_LR4.GeneratedMSBuildEditorConfig.editorconfig
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\obj\Debug\net10.0\453503_Кирпичёв_LR4.AssemblyInfoInputs.cache
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\obj\Debug\net10.0\453503_Кирпичёв_LR4.AssemblyInfo.cs
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\obj\Debug\net10.0\453503_Кирпичёв_LR4.csproj.CoreCompileInputs.cache
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\obj\Debug\net10.0\453503_Кирпичёв_LR4.dll
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\obj\Debug\net10.0\refint\453503_Кирпичёв_LR4.dll
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\obj\Debug\net10.0\453503_Кирпичёв_LR4.pdb
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\obj\Debug\net10.0\453503_Кирпичёв_LR4.genruntimeconfig.cache
+d:\Documents\453503\ООП\453503_Кирпичёв_LR4\453503_Кирпичёв_LR4\obj\Debug\net10.0\ref\453503_Кирпичёв_LR4.dll
