@@ -101,7 +101,6 @@ class Program
                 Console.WriteLine($"  - {t.Name}: стоимость {t.CostPerKm:F2} ед./км, скорость {t.SpeedKmh:F2} км/ч");
             }
 
-            // Используем поезд для тяжелого груза
             var heavyCargo = new Dictionary<string, int>
             {
                 { "Оборудование", 5 }
