@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("453503_Кирпичёв_LR4")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+03cd06390c5a518c1e76a3ce7ae37a1930c44f1f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f3479d9e45257c158bdee149c945e8a0718778bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("453503_Кирпичёв_LR4")]
 [assembly: System.Reflection.AssemblyTitleAttribute("453503_Кирпичёв_LR4")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

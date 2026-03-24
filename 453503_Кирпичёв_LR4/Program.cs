@@ -86,29 +86,6 @@ class Program
 
             var result3 = controller.ProcessDelivery(cargoQuantities3, "Вода", 800);
             result3.Display();
-
-            // Пример 4: Выбор конкретного транспорта (через фабрику с дополнительной логикой)
-            Console.WriteLine("\n\nПример 4: Разные наземные транспорты");
-
-            // Показываем, что для наземного транспорта доступны разные варианты
-            var groundTransports = controller.GetAvailableTransports()
-                .Where(t => t.Type == "Земля")
-                .ToList();
-
-            Console.WriteLine("Доступные наземные транспорты:");
-            foreach (var t in groundTransports)
-            {
-                Console.WriteLine($"  - {t.Name}: стоимость {t.CostPerKm:F2} ед./км, скорость {t.SpeedKmh:F2} км/ч");
-            }
-
-            var heavyCargo = new Dictionary<string, int>
-            {
-                { "Оборудование", 5 }
-            };
-
-            var result4 = controller.ProcessDelivery(heavyCargo, "Земля", 1000);
-            result4.Display();
-
         }
         catch (Exception ex)
         {
