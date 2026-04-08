@@ -1,5 +1,6 @@
 ﻿// Загрузчик данных - Pure Fabrication класс
 using System.Globalization;
+using System.Xml.Linq;
 
 public class DataLoader
 {
@@ -123,5 +124,151 @@ public class DataLoader
 
         Console.WriteLine($"Предупреждение: не удалось преобразовать '{value}' в число, возвращаем 0");
         return 0;
+    }
+}
+
+
+
+
+
+// Прием файлов в разных форматах (JSON, XML, CSV)
+// Паттерн: Адаптер + Фасад
+
+/// <summary>
+/// Целевой интерфейс, который ожидает наша система
+/// </summary>
+public interface IDataLoader
+{
+    (List<Cargo> cargos, List<Transport> transports) LoadData(string filePath);
+}
+
+/// <summary>
+/// Адаптер для CSV (уже существующий DataLoader, но приведем к общему интерфейсу)
+/// </summary>
+public class CsvDataLoaderAdapter : IDataLoader
+{
+    private readonly DataLoader _csvLoader = new DataLoader();
+
+    public (List<Cargo> cargos, List<Transport> transports) LoadData(string filePath)
+    {
+        return _csvLoader.LoadData(filePath);
+    }
+}
+
+public class JsonDataLoaderAdapter : IDataLoader
+{
+    public (List<Cargo> cargos, List<Transport> transports) LoadData(string filePath)
+    {
+        var json = File.ReadAllText(filePath);
+        var data = System.Text.Json.JsonSerializer.Deserialize<JsonDataFormat>(json);
+        return ConvertFromJson(data);
+    }
+
+    private (List<Cargo>, List<Transport>) ConvertFromJson(JsonDataFormat data)
+    {
+        var cargos = data.Cargos.Select(c => new Cargo(c.Name, c.WeightPerUnit, c.CostPerKg)).ToList();
+        var transports = data.Transports.Select(t => new Transport(t.Name, t.Type, t.CostPerKm, t.SpeedKmh)).ToList();
+        return (cargos, transports);
+    }
+}
+
+/// <summary>
+/// DTO для десериализации JSON
+/// </summary>
+public class JsonDataFormat
+{
+    public List<JsonCargo> Cargos { get; set; }
+    public List<JsonTransport> Transports { get; set; }
+}
+
+public class JsonCargo
+{
+    public string Name { get; set; }
+    public double WeightPerUnit { get; set; }
+    public double CostPerKg { get; set; }
+}
+
+public class JsonTransport
+{
+    public string Name { get; set; }
+    public string Type { get; set; }
+    public double CostPerKm { get; set; }
+    public double SpeedKmh { get; set; }
+}
+
+/// <summary>
+/// Адаптер для XML
+/// </summary>
+public class XmlDataLoaderAdapter : IDataLoader
+{
+    public (List<Cargo> cargos, List<Transport> transports) LoadData(string filePath)
+    {
+        var xml = File.ReadAllText(filePath);
+        return ParseXml(xml);
+    }
+
+    private (List<Cargo> cargos, List<Transport> transports) ParseXml(string xml)
+    {
+        var cargos = new List<Cargo>();
+        var transports = new List<Transport>();
+
+        var doc = XDocument.Parse(xml);
+
+        var cargoElements = doc.Descendants("Cargo");
+        foreach (var cargoElem in cargoElements)
+        {
+            var name = cargoElem.Element("Name")?.Value ?? "";
+            var weightPerUnit = double.Parse(cargoElem.Element("WeightPerUnit")?.Value ?? "0",
+                System.Globalization.CultureInfo.InvariantCulture);
+            var costPerKg = double.Parse(cargoElem.Element("CostPerKg")?.Value ?? "0",
+                System.Globalization.CultureInfo.InvariantCulture);
+
+            cargos.Add(new Cargo(name, weightPerUnit, costPerKg));
+        }
+
+        var transportElements = doc.Descendants("Transport");
+        foreach (var transportElem in transportElements)
+        {
+            var name = transportElem.Element("Name")?.Value ?? "";
+            var type = transportElem.Element("Type")?.Value ?? "";
+            var costPerKm = double.Parse(transportElem.Element("CostPerKm")?.Value ?? "0",
+                System.Globalization.CultureInfo.InvariantCulture);
+            var speedKmh = double.Parse(transportElem.Element("SpeedKmh")?.Value ?? "0",
+                System.Globalization.CultureInfo.InvariantCulture);
+
+            transports.Add(new Transport(name, type, costPerKm, speedKmh));
+        }
+
+        return (cargos, transports);
+    }
+}
+
+/// <summary>
+/// Фасад для упрощения загрузки данных из разных форматов
+/// </summary>
+public class DataLoaderFacade
+{
+    private readonly Dictionary<string, IDataLoader> _loaders;
+
+    public DataLoaderFacade()
+    {
+        _loaders = new Dictionary<string, IDataLoader>
+        {
+            { ".csv", new CsvDataLoaderAdapter() },
+            { ".json", new JsonDataLoaderAdapter() },
+            { ".xml", new XmlDataLoaderAdapter() }
+        };
+    }
+
+    public (List<Cargo> cargos, List<Transport> transports) LoadData(string filePath)
+    {
+        var extension = Path.GetExtension(filePath).ToLower();
+
+        if (_loaders.TryGetValue(extension, out var loader))
+        {
+            return loader.LoadData(filePath);
+        }
+
+        throw new NotSupportedException($"Формат {extension} не поддерживается");
     }
 }

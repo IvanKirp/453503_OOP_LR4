@@ -1,0 +1,50 @@
+{
+  "ExportDate": "2026-04-08T22:54:59.1143569+03:00",
+  "Options": [
+    {
+      "TransportName": "\u0413\u0440\u0443\u0437\u043E\u0432\u0438\u043A (\u0417\u0435\u043C\u043B\u044F)",
+      "TransportType": "\u0417\u0435\u043C\u043B\u044F",
+      "SpeedKmh": 80,
+      "CostPerKm": 15,
+      "TotalCost": 8330,
+      "DeliveryTimeHours": 6.25,
+      "TotalWeight": 19
+    },
+    {
+      "TransportName": "\u041F\u043E\u0435\u0437\u0434 (\u0417\u0435\u043C\u043B\u044F)",
+      "TransportType": "\u0417\u0435\u043C\u043B\u044F",
+      "SpeedKmh": 60,
+      "CostPerKm": 5,
+      "TotalCost": 3330,
+      "DeliveryTimeHours": 8.333333333333334,
+      "TotalWeight": 19
+    },
+    {
+      "TransportName": "\u0422\u0430\u043D\u043A\u0435\u0440 (\u0412\u043E\u0434\u0430)",
+      "TransportType": "\u0412\u043E\u0434\u0430",
+      "SpeedKmh": 35,
+      "CostPerKm": 2,
+      "TotalCost": 1830,
+      "DeliveryTimeHours": 14.285714285714286,
+      "TotalWeight": 19
+    },
+    {
+      "TransportName": "\u0421\u0430\u043C\u043E\u043B\u0435\u0442 (\u0412\u043E\u0437\u0434\u0443\u0445)",
+      "TransportType": "\u0412\u043E\u0437\u0434\u0443\u0445",
+      "SpeedKmh": 850,
+      "CostPerKm": 150,
+      "TotalCost": 75830,
+      "DeliveryTimeHours": 0.5882352941176471,
+      "TotalWeight": 19
+    },
+    {
+      "TransportName": "\u0412\u0435\u0440\u0442\u043E\u043B\u0435\u0442 (\u0412\u043E\u0437\u0434\u0443\u0445)",
+      "TransportType": "\u0412\u043E\u0437\u0434\u0443\u0445",
+      "SpeedKmh": 250,
+      "CostPerKm": 200,
+      "TotalCost": 100830,
+      "DeliveryTimeHours": 2,
+      "TotalWeight": 19
+    }
+  ]
+}
